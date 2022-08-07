@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.0/jquery.min.js"></script>
+</head>
+<body>
+    <button id="get" >get</button>
+    <button id="post">post</button>
+    <button id="delete">delete</button>
+</body>
+<script>
+    $(function(){
+        // 1.测试GET接口
+        $('#get').on('click',function(){
+            $.ajax({
+                type:'get',
+                url:'http://127.0.0.1:8080/api/get',
+                data:{ name:'zs',age:20},
+                success:function(res){
+                    console.log(res);
+                }
+            })
+        })
+        
+        // 2.测试POST接口
+        $('#post').on('click',function(){
+            $.ajax({
+                type:'post',
+                url:'http://127.0.0.1:8080/api/post',
+                data:{ anme:'海峰',age:19},
+                success:function(res){
+                    console.log(res);
+                }
+            })
+        })
+
+        // 3.定义一个delete请求，测试delete预检请求
+        $('#delete').on('click',function(){
+            $.ajax({
+                type:'delete',
+                url:'http://127.0.0.1:8080/api/delete',
+                data:{ anme:'绍龙',age:21},
+                success:function(res){
+                    console.log(res);
+                }
+            })
+        })
+    })
+</script>
+</html>
